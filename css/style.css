@@ -808,14 +808,17 @@ footer.site-footer{
 @media (max-width: 640px){
   .nav-right{ gap:10px; }
   .nav-right .btn-ghost{ display:none; }
-  .nav-mobile-toggle{ display:flex; order:3; }
-  .theme-toggle{ order:2; }
+  /* Mobile header: burger replaces the desktop navigation; theme toggle stays at the far right. */
+  .nav-links{ display:none !important; }
+  .nav-mobile-toggle{ display:flex; order:2; }
+  .theme-toggle{ order:3; }
+  /* Closed: only the burger is visible. Open: show a single dropdown panel. */
   .mobile-menu{
-    display:none;
+    display:none !important;
     position:absolute;
     left:var(--gutter);
     right:var(--gutter);
-    top:calc(100% + 1px);
+    top:calc(100% + 8px);
     z-index:100;
     padding:10px;
     background:var(--bg-raised);
@@ -823,7 +826,7 @@ footer.site-footer{
     border-radius:var(--radius);
     box-shadow:0 16px 36px rgba(0,0,0,.14);
   }
-  .mobile-menu.mobile-open{ display:block; }
+  .mobile-menu.mobile-open{ display:block !important; }
   .mobile-menu > a,
   .mobile-menu summary{
     display:flex;

@@ -137,33 +137,68 @@
       track.innerHTML += track.innerHTML;
     });
 
-    /* ---------------- mobile nav ---------------- */
-    var mobileToggle = document.querySelector('.nav-mobile-toggle');
-    var mobileMenu = document.querySelector('.mobile-menu');
-    if(mobileToggle && mobileMenu){
-      function closeMobileMenu(){
-        mobileMenu.classList.remove('mobile-open');
-        mobileMenu.setAttribute('aria-hidden', 'true');
-        mobileToggle.setAttribute('aria-expanded', 'false');
-        mobileToggle.setAttribute('aria-label', 'Open navigation');
-      }
-      mobileToggle.addEventListener('click', function(e){
-        e.stopPropagation();
-        var open = mobileMenu.classList.toggle('mobile-open');
-        mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
-        mobileToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        mobileToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-      });
-      mobileMenu.querySelectorAll('a').forEach(function(link){
-        link.addEventListener('click', closeMobileMenu);
-      });
-      document.addEventListener('click', function(e){
-        if(!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) closeMobileMenu();
-      });
-      window.addEventListener('keydown', function(e){
-        if(e.key === 'Escape') closeMobileMenu();
-      });
+/* ---------------- mobile nav ---------------- */
+var mobileToggle = document.querySelector('.nav-mobile-toggle');
+var mobileMenu = document.querySelector('.mobile-menu');
+
+if(mobileToggle && mobileMenu){
+
+  function closeMobileMenu(){
+    mobileMenu.classList.remove('mobile-open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    mobileToggle.setAttribute('aria-expanded', 'false');
+    mobileToggle.setAttribute('aria-label', 'Open navigation');
+  }
+
+  function openMobileMenu(){
+    mobileMenu.classList.add('mobile-open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    mobileToggle.setAttribute('aria-expanded', 'true');
+    mobileToggle.setAttribute('aria-label', 'Close navigation');
+  }
+
+  mobileToggle.addEventListener('click', function(e){
+    e.stopPropagation();
+
+    if(mobileMenu.classList.contains('mobile-open')){
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
     }
+  });
+
+  /* Close when a navigation link is selected */
+  mobileMenu.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  /* Close when clicking outside the menu */
+  document.addEventListener('click', function(e){
+    if(
+      !mobileMenu.contains(e.target) &&
+      !mobileToggle.contains(e.target)
+    ){
+      closeMobileMenu();
+    }
+  });
+
+  /* Close with Escape */
+  window.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      closeMobileMenu();
+    }
+  });
+
+  /* Close when returning to desktop width */
+  window.addEventListener('resize', function(){
+    if(window.innerWidth > 640){
+      closeMobileMenu();
+    }
+  });
+
+  /* Start closed */
+  closeMobileMenu();
+}
 
     /* ---------------- contact form (static demo) ---------------- */
     var form = document.querySelector('.contact-form');
