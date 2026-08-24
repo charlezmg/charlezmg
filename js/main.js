@@ -139,29 +139,29 @@
 
     /* ---------------- mobile nav ---------------- */
     var mobileToggle = document.querySelector('.nav-mobile-toggle');
-    var navLinks = document.querySelector('.nav-links');
-    if(mobileToggle && navLinks){
-      mobileToggle.addEventListener('click', function(){
-        var open = navLinks.classList.toggle('mobile-open');
+    var mobileMenu = document.querySelector('.mobile-menu');
+    if(mobileToggle && mobileMenu){
+      function closeMobileMenu(){
+        mobileMenu.classList.remove('mobile-open');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileToggle.setAttribute('aria-label', 'Open navigation');
+      }
+      mobileToggle.addEventListener('click', function(e){
+        e.stopPropagation();
+        var open = mobileMenu.classList.toggle('mobile-open');
+        mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
         mobileToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
         mobileToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
       });
-
-      navLinks.querySelectorAll('a').forEach(function(link){
-        link.addEventListener('click', function(){
-          navLinks.classList.remove('mobile-open');
-          mobileToggle.setAttribute('aria-expanded', 'false');
-          mobileToggle.setAttribute('aria-label', 'Open navigation');
-        });
+      mobileMenu.querySelectorAll('a').forEach(function(link){
+        link.addEventListener('click', closeMobileMenu);
       });
-
+      document.addEventListener('click', function(e){
+        if(!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) closeMobileMenu();
+      });
       window.addEventListener('keydown', function(e){
-        if(e.key === 'Escape' && navLinks.classList.contains('mobile-open')){
-          navLinks.classList.remove('mobile-open');
-          mobileToggle.setAttribute('aria-expanded', 'false');
-          mobileToggle.setAttribute('aria-label', 'Open navigation');
-          mobileToggle.focus();
-        }
+        if(e.key === 'Escape') closeMobileMenu();
       });
     }
 
