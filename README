@@ -1,0 +1,31 @@
+# Charles Gumera Portfolio
+
+Source code for my personal portfolio website.
+
+## Overview
+
+A personal portfolio showcasing my work in video editing, Pinterest operations,
+short-form publishing systems, and graphic design.
+
+## Structure
+
+- `index.html` — Homepage
+- `short-form-and-long-form-video-editing.html` — Video editing
+- `pinterest-content-operations-system.html` — Pinterest operations
+- `short-form-publishing-workflow-system.html` — Short-form publishing system
+- `graphic-design.html` — Graphic design
+- `css/` — Stylesheets
+- `js/` — JavaScript
+- `assets/` — Website images and other assets
+
+## Local development
+
+Run the website using a local development server.
+
+## Media
+
+Some portfolio videos are embedded from Vimeo.
+
+## Status
+
+Active portfolio website.
