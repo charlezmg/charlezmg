@@ -142,7 +142,26 @@
     var navLinks = document.querySelector('.nav-links');
     if(mobileToggle && navLinks){
       mobileToggle.addEventListener('click', function(){
-        navLinks.classList.toggle('mobile-open');
+        var open = navLinks.classList.toggle('mobile-open');
+        mobileToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        mobileToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      });
+
+      navLinks.querySelectorAll('a').forEach(function(link){
+        link.addEventListener('click', function(){
+          navLinks.classList.remove('mobile-open');
+          mobileToggle.setAttribute('aria-expanded', 'false');
+          mobileToggle.setAttribute('aria-label', 'Open navigation');
+        });
+      });
+
+      window.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && navLinks.classList.contains('mobile-open')){
+          navLinks.classList.remove('mobile-open');
+          mobileToggle.setAttribute('aria-expanded', 'false');
+          mobileToggle.setAttribute('aria-label', 'Open navigation');
+          mobileToggle.focus();
+        }
       });
     }
 

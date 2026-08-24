@@ -13,7 +13,7 @@
 <header class="site-header">
   <nav class="nav">
     <a class="logo" href="index.html"><span class="dot"></span>Charles Gumera</a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="site-navigation">
       <li><a href="index.html">Home</a></li>
       <li><a href="short-form-and-long-form-video-editing.html">Video editing</a></li>
       <li><a href="pinterest-content-operations-system.html">Pinterest ops</a></li>
@@ -21,6 +21,9 @@
       <li><a href="graphic-design.html">Graphic design</a></li>
     </ul>
     <div class="nav-right">
+      <button class="nav-mobile-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">
+        <span></span><span></span><span></span>
+      </button>
       <a class="btn btn-ghost" href="index.html#contact">Contact</a>
       <button class="theme-toggle" aria-label="Toggle color theme">
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.4A9 9 0 1111.6 3 7.2 7.2 0 0021 12.4z"/></svg>
@@ -66,7 +69,7 @@
       <div class="section-head reveal">
         <div><p class="eyebrow">Core playbook &amp; format rules</p><h2>Format constraints enforced</h2></div>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;" class="reveal">
+      <div class="reveal two-col">
         <ul class="rule-list">
           <li>4–6 slide limit per TikTok video</li>
           <li>Approximately 70 characters per slide</li>
@@ -88,7 +91,7 @@
         <div><p class="eyebrow">Structural governance</p><h2>Predictable output, predictable visuals</h2></div>
         <p class="section-note">Scripts were generated under predefined constraints to ensure predictable output and visual consistency.</p>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;" class="reveal">
+      <div class="reveal two-col">
         <figure class="media-figure wide-cover" data-lightbox data-caption="image (4).png">
           <img src="assets/image%20%284%29.png" alt="image (4)">
         </figure>
@@ -113,7 +116,7 @@
       <div class="section-head reveal">
         <div><p class="eyebrow">Cross-platform format adaptation</p><h2>Same workflow. Different output layer</h2></div>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;" class="reveal">
+      <div class="reveal two-col">
         <ul class="rule-list">
           <li>Approximately 20-second vertical format</li>
           <li>Frame 1 used a static split layout with an upper text block and dual-video background</li>
@@ -135,7 +138,7 @@
       <div class="section-head reveal">
         <div><p class="eyebrow">Workflow &amp; asset flow</p><h2>Production flow</h2></div>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;" class="reveal">
+      <div class="reveal two-col">
         <ol class="flow-list">
           <li>Idea</li>
           <li>Script under constraints</li>

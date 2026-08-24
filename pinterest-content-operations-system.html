@@ -13,7 +13,7 @@
 <header class="site-header">
   <nav class="nav">
     <a class="logo" href="index.html"><span class="dot"></span>Charles Gumera</a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="site-navigation">
       <li><a href="index.html">Home</a></li>
       <li><a href="short-form-and-long-form-video-editing.html">Video editing</a></li>
       <li><a href="pinterest-content-operations-system.html" class="active">Pinterest ops</a></li>
@@ -21,6 +21,9 @@
       <li><a href="graphic-design.html">Graphic design</a></li>
     </ul>
     <div class="nav-right">
+      <button class="nav-mobile-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">
+        <span></span><span></span><span></span>
+      </button>
       <a class="btn btn-ghost" href="index.html#contact">Contact</a>
       <button class="theme-toggle" aria-label="Toggle color theme">
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.4A9 9 0 1111.6 3 7.2 7.2 0 0021 12.4z"/></svg>
@@ -61,7 +64,7 @@
       <div class="section-head reveal">
         <div><p class="eyebrow">Workflow infrastructure</p><h2>Task tracking</h2></div>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;" class="reveal">
+      <div class="reveal two-col">
         <figure class="media-figure wide-cover" data-lightbox data-caption="trello.png">
           <img src="assets/trello.png" alt="Trello board">
         </figure>
