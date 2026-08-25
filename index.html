@@ -308,7 +308,7 @@
           <a href="https://charlezmg.wordpress.com/" target="_blank" rel="noopener">WordPress <span>↗</span></a>
         </div>
       </div>
-      <form class="contact-form">
+      <form class="contact-form" action="https://formspree.io/f/xzeplgdd" method="POST">
         <div class="field">
           <label for="name">Name</label>
           <input id="name" name="name" type="text" required placeholder="Your name">
@@ -321,6 +321,8 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" required placeholder="Tell me about the project or workflow you need built"></textarea>
         </div>
+        <div class="form-status" data-fs-success aria-live="polite"></div>
+        <div class="form-status" data-fs-error aria-live="polite"></div>
         <button class="btn btn-primary" type="submit" data-magnetic="8">Send message</button>
       </form>
     </div>
